@@ -2,6 +2,7 @@ package Entity;
 
 public class User {
 
+    private Long id;
     private String userName;
     private String email;
     private String address;
@@ -49,6 +50,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override

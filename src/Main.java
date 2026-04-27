@@ -1,3 +1,7 @@
+import Entity.User;
+import Service.UserService;
+import Utils.EmailValidator;
+
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -5,6 +9,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
        Scanner scanner = new Scanner(System.in);
+        EmailValidator emailValidator = new EmailValidator();
+
+
 
        boolean health = true;
        while(health){
@@ -27,6 +34,12 @@ public class Main {
                    String userName = scanner.next();
                    System.out.println("2. Enter Email Id");
                    String email = scanner.next();
+
+                   while(!emailValidator.isValid(email)) {
+                       System.out.println("Email is not Valid - PLEASE RE-ENTER THE EMAIL");
+                       email = scanner.next();
+                   }
+                   scanner.nextLine();
                    System.out.println("3. Enter Address");
                    String address = scanner.nextLine();
                    System.out.println("4. Enter Password");
@@ -38,6 +51,8 @@ public class Main {
                        System.out.println("Password did not match re-enter the password");
                        reenterPass = scanner.next();
                    }
+
+
                }
 
            }
